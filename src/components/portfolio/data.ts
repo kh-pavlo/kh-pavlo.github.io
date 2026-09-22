@@ -23,6 +23,17 @@ export interface CurrentlyItem {
   value: string;
 }
 
+export interface ExperienceItem {
+  role: string;
+  company: string;
+  employmentType: string;
+  startDate: string;
+  endDate: string;
+  duration: string;
+  description: string[];
+  skills: string[];
+}
+
 export interface SiteInfo {
   name: string;
   title: string;
@@ -37,10 +48,11 @@ export const SITE_INFO: SiteInfo = {
   email: "hit.pasha@gmail.com",
 };
 
-export const NAV_LINKS: string[] = ["About", "Stack", "Projects"];
+export const NAV_LINKS: string[] = ["About", "Experience", "Stack", "Projects"];
 
 export const SECTION_LABELS = {
   about: "About",
+  experience: "Experience",
   stack: "Stack",
   projects: "Projects",
   currently: "Currently",
@@ -50,6 +62,45 @@ export const ABOUT_CONTENT = {
   heading: "I build products end-to-end — from data models to the interfaces people actually use.",
   body: "Full-stack engineer with 2 years of professional experience designing and building software across early-stage startups and mid-size companies — React, TypeScript, and Node.js on the product side, REST APIs and modular, maintainable architecture underneath. I pair traditional software craftsmanship with AI-assisted development, using tools like Claude to move faster without cutting corners on code quality — with a sharp eye for detail that turns good architecture into great user experiences.",
 };
+
+export const EXPERIENCE: ExperienceItem[] = [
+  {
+    role: "Full Stack Engineer",
+    company: "dudecode",
+    employmentType: "Full-time",
+    startDate: "Jul 2025",
+    endDate: "Present",
+    duration: "1 yr 3 mos",
+    description: [
+      "Built full stack features using TypeScript, covering both API architecture and the frontend that consumes it",
+      "Worked across the stack on early stage startup software, moving between backend and interface work as priorities shifted",
+    ],
+    skills: ["React.js", "Next.js"],
+  },
+  {
+    role: "QA Specialist",
+    company: "Dogteampro",
+    employmentType: "Full-time",
+    startDate: "Nov 2023",
+    endDate: "Feb 2025",
+    duration: "1 yr 4 mos",
+    description: [
+      "Built automated testing pipelines using low code tools, replacing manual test cycles",
+      "Reduced reliance on manual QA by handling testing automation directly",
+    ],
+    skills: [],
+  },
+  {
+    role: "QA Engineer",
+    company: "Post Inc.",
+    employmentType: "Full-time",
+    startDate: "Feb 2023",
+    endDate: "Oct 2023",
+    duration: "9 mos",
+    description: [],
+    skills: [],
+  },
+];
 
 export const STACK_FILTER_ALL_LABEL = "All";
 
