@@ -48,7 +48,7 @@ export const SITE_INFO: SiteInfo = {
   email: "hit.pasha@gmail.com",
 };
 
-export const NAV_LINKS: string[] = ["About", "Experience", "Stack", "Projects"];
+export const NAV_LINKS: string[] = ["About", "Stack", "Experience", "Projects"];
 
 export const SECTION_LABELS = {
   about: "About",
