@@ -10,9 +10,9 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Wrapper
       {...wrapperProps}
-      className="group grid grid-cols-[148px_1fr] overflow-hidden rounded-xl border border-[#e5e5ea] bg-white transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.07)] dark:border-[#1e1e1e] dark:bg-[#111111] dark:hover:shadow-[0_2px_16px_rgba(0,0,0,0.35)]"
+      className="group grid grid-cols-1 overflow-hidden rounded-xl border border-[#e5e5ea] bg-white transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.07)] sm:grid-cols-[148px_1fr] dark:border-[#1e1e1e] dark:bg-[#111111] dark:hover:shadow-[0_2px_16px_rgba(0,0,0,0.35)]"
     >
-      <div className="h-full min-h-[130px] w-[148px] shrink-0 overflow-hidden bg-[#f5f5f7] dark:bg-[#1e1e1e]">
+      <div className="h-[160px] w-full shrink-0 overflow-hidden bg-[#f5f5f7] sm:h-full sm:min-h-[130px] sm:w-[148px] dark:bg-[#1e1e1e]">
         <img
           src={project.image}
           alt={project.imageAlt}
@@ -45,8 +45,8 @@ function ProjectCard({ project }: { project: Project }) {
             {project.description}
           </p>
         </div>
-        <div className="flex items-center justify-between">
-          <div className="flex gap-1.5">
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
               <span
                 key={tag}
@@ -56,7 +56,7 @@ function ProjectCard({ project }: { project: Project }) {
               </span>
             ))}
           </div>
-          <span className="text-[11px] font-light text-[#6e6e73] dark:text-[#888888]">{project.year}</span>
+          <span className="ml-auto shrink-0 text-[11px] font-light text-[#6e6e73] dark:text-[#888888]">{project.year}</span>
         </div>
       </div>
     </Wrapper>
