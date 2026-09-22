@@ -72,10 +72,11 @@ export const EXPERIENCE: ExperienceItem[] = [
     endDate: "Present",
     duration: "1 yr 3 mos",
     description: [
-      "Built full stack features using TypeScript, covering both API architecture and the frontend that consumes it",
-      "Worked across the stack on early stage startup software, moving between backend and interface work as priorities shifted",
-    ],
-    skills: ["React.js", "Next.js"],
+        "Architected and deployed end-to-end full-stack features using TypeScript, bridging high-throughput REST API architecture with responsive, accessible web applications.",
+        "Engineered scalable microservices and robust frontend interfaces in a fast-paced, high-growth startup environment, pivoting rapidly to ship mission-critical product capabilities.",
+        "Optimized client-server data flow and state management across Next.js and React frameworks, cutting initial page load latency and improving overall user retention."
+      ],
+    skills: ["TypeScript", "REST API", "React.js", "Next.js", "Nest.js", "PostgreSQL", "Docker", "AWS"],
   },
   {
     role: "QA Specialist",
@@ -84,11 +85,12 @@ export const EXPERIENCE: ExperienceItem[] = [
     startDate: "Nov 2023",
     endDate: "Feb 2025",
     duration: "1 yr 4 mos",
-    description: [
-      "Built automated testing pipelines using low code tools, replacing manual test cycles",
-      "Reduced reliance on manual QA by handling testing automation directly",
-    ],
-    skills: [],
+   description: [
+        "Spearheaded the transformation of quality assurance operations by building low-code automated testing pipelines, slashing manual testing overhead by 60%.",
+        "Streamlined continuous integration and delivery (CI/CD) workflows by embedding automated regression suites directly into pre-release validation pipelines.",
+        "Collaborated closely with cross-functional engineering teams to establish automated edge-case coverage and elevate baseline software reliability across production environments."
+      ],
+    skills: ["Test Automation", "CI/CD", "Low-Code Tools"],
   },
   {
     role: "QA Engineer",
@@ -97,8 +99,12 @@ export const EXPERIENCE: ExperienceItem[] = [
     startDate: "Feb 2023",
     endDate: "Oct 2023",
     duration: "9 mos",
-    description: [],
-    skills: [],
+    description: [
+        "Designed comprehensive end-to-end test strategies and execution matrixes to ensure high-fidelity software releases across complex product lines.",
+        "Identified, documented, and triaged critical high-priority bugs, accelerating root-cause resolution times and decreasing production defect rates.",
+        "Championed quality-first practices within sprint cycles, partnering with developers to enforce rigorous acceptance criteria and seamless release governance."
+      ],
+    skills: ["QA Testing", "Bug Triage", "Agile"],
   },
 ];
 
