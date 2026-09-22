@@ -177,6 +177,7 @@ export const SOCIALS: Social[] = [
   { name: "GitHub", href: "https://github.com/kh-pavlo" },
   { name: "LinkedIn", href: "https://linkedin.com/in/pavlo-khytrov" },
   { name: "Twitter", href: "https://x.com/nuff02" },
+  { name: "WhatsApp", href: "https://wa.me/kh_pavlo" },
 ];
 
 export const CURRENTLY: CurrentlyItem[] = [
