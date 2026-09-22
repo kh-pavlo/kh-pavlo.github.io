@@ -26,11 +26,11 @@ export default function StackSection() {
           </Pill>
         ))}
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(116px,1fr))] gap-px overflow-hidden rounded-[10px] border border-[#e5e5ea] bg-[#e5e5ea] dark:border-[#1e1e1e] dark:bg-[#1e1e1e]">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(116px,1fr))] gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline dark:border-hairline-dark dark:bg-hairline-dark">
         {filteredStack.map((item) => (
           <div
             key={item.label}
-            className="bg-white px-[15px] py-[13px] font-mono text-[13px] font-light text-[#3a3a3c] transition-colors hover:bg-[#f5f5f7] dark:bg-[#111111] dark:text-[#f0ede6] dark:hover:bg-[#1e1e1e]"
+            className="bg-canvas px-[15px] py-[13px] font-mono text-[13px] font-light text-body transition-colors hover:bg-surface dark:bg-surface-dark dark:text-ink-dark dark:hover:bg-hairline-dark"
           >
             {item.label}
           </div>
