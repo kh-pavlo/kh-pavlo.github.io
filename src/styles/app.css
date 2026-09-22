@@ -4,11 +4,57 @@
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-display: "DM Serif Display", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Single source of truth for the site's palette — every component
+     references these tokens (text-ink, bg-surface, etc.) instead of raw hex
+     values, so retheming means editing colors here, not hunting through
+     every .tsx file. Each dark-mode counterpart is its own token (Tailwind's
+     `dark:` variant is a media-query modifier applied per-utility, not
+     something a single token can switch automatically), applied via
+     `dark:text-ink-dark` etc. at each call site. */
+
+  /* Base canvas */
+  --color-canvas: #ffffff;
+  --color-canvas-dark: #0a0a0a;
+
+  /* Text */
+  --color-ink: #1d1d1f; /* primary text, light */
+  --color-ink-dark: #f0ede6; /* primary text, dark */
+  --color-body: #3a3a3c; /* secondary body copy, light only — dark reuses ink-dark */
+  --color-muted: #6e6e73; /* tertiary/label text, light */
+  --color-muted-dark: #888888; /* tertiary/label text, dark */
+
+  /* Surfaces */
+  --color-surface: #f5f5f7; /* subtle fill / hover background, light */
+  --color-surface-dark: #111111; /* card/sidebar background, dark */
+  --color-surface-alt: #fbfbfd; /* sidebar background, light only */
+
+  /* Hairlines (borders, and reused as dark-mode hover fills / grid lines) */
+  --color-hairline: #e5e5ea;
+  --color-hairline-dark: #1e1e1e;
+
+  /* Accent — the site's one signature color, dark-mode only */
+  --color-accent: #b8ff3c;
+
+  /* Status */
+  --color-success: #15803d; /* "Live" status, light — dark reuses accent */
+  --color-online: #34c759; /* availability dot, light — dark reuses accent */
+  --color-link: #0071e3; /* email link, light — dark reuses accent */
+
+  /* Project-card watermark numerals (see ProjectsSection) */
+  --color-watermark: #f5f5f7;
+  --color-watermark-hover: #eeeef0;
+  --color-watermark-dark: #161616;
+  --color-watermark-dark-hover: #1c1c1e;
+
+  /* Scrollbar (not theme/mode-dependent — same on light and dark) */
+  --color-scrollbar: #2a2a2a;
+  --color-scrollbar-hover: #3a3a3a;
 }
 
 html,
 body {
-  background-color: #ffffff;
+  background-color: var(--color-canvas);
 }
 
 html {
@@ -18,7 +64,7 @@ html {
 @media (prefers-color-scheme: dark) {
   html,
   body {
-    background-color: #0a0a0a;
+    background-color: var(--color-canvas-dark);
   }
 }
 
@@ -29,9 +75,9 @@ html {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: var(--color-scrollbar);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a3a;
+  background: var(--color-scrollbar-hover);
 }

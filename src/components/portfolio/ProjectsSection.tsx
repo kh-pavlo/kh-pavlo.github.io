@@ -10,53 +10,45 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Wrapper
       {...wrapperProps}
-      className="group grid grid-cols-[148px_1fr] overflow-hidden rounded-xl border border-[#e5e5ea] bg-white transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.07)] dark:border-[#1e1e1e] dark:bg-[#111111] dark:hover:shadow-[0_2px_16px_rgba(0,0,0,0.35)]"
+      className="group relative block overflow-hidden rounded-xl border border-hairline bg-canvas px-[22px] py-5 transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.07)] dark:border-hairline-dark dark:bg-surface-dark dark:hover:shadow-[0_2px_16px_rgba(0,0,0,0.35)]"
     >
-      <div className="h-full min-h-[130px] w-[148px] shrink-0 overflow-hidden bg-[#f5f5f7] dark:bg-[#1e1e1e]">
-        <img
-          src={project.image}
-          alt={project.imageAlt}
-          className="block h-full w-full object-cover transition-transform duration-[350ms] ease-out group-hover:scale-105"
-        />
-      </div>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-4 right-3 select-none font-display text-[100px] leading-none text-watermark transition-colors duration-300 group-hover:text-watermark-hover sm:text-[128px] dark:text-watermark-dark dark:group-hover:text-watermark-dark-hover"
+      >
+        {project.number}
+      </span>
 
-      <div className="flex flex-col justify-between px-[22px] py-5">
-        <div>
-          <div className="mb-[7px] flex items-center justify-between">
-            <div className="flex items-baseline gap-2">
-              <span className="font-mono text-[10px] font-light text-[#6e6e73] dark:text-[#888888]">
-                {project.number}
-              </span>
-              <h3 className="text-[15px] font-normal tracking-[-0.01em] text-[#1d1d1f] dark:text-[#f0ede6]">
-                {project.name}
-              </h3>
-            </div>
-            <span
-              className={
-                project.status === "Live"
-                  ? "text-[11px] font-normal text-[#15803d] dark:text-[#b8ff3c]"
-                  : "text-[11px] font-normal text-[#6e6e73] dark:text-[#888888]"
-              }
-            >
-              {project.status}
-            </span>
-          </div>
-          <p className="mb-3.5 text-xs font-light leading-[1.65] text-[#6e6e73] dark:text-[#888888]">
-            {project.description}
-          </p>
+      <div className="relative">
+        <div className="mb-[7px] flex items-center justify-between">
+          <h3 className="text-[15px] font-normal tracking-[-0.01em] text-ink dark:text-ink-dark">
+            {project.name}
+          </h3>
+          <span
+            className={
+              project.status === "Live"
+                ? "text-[11px] font-normal text-success dark:text-accent"
+                : "text-[11px] font-normal text-muted dark:text-muted-dark"
+            }
+          >
+            {project.status}
+          </span>
         </div>
-        <div className="flex items-center justify-between">
-          <div className="flex gap-1.5">
+        <p className="mb-3.5 max-w-[520px] text-xs font-light leading-[1.65] text-muted dark:text-muted-dark">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-[#e5e5ea] bg-[#f5f5f7] px-2 py-0.5 font-mono text-[10px] font-light text-[#6e6e73] dark:border-[#1e1e1e] dark:bg-[#1e1e1e] dark:text-[#888888]"
+                className="rounded-full border border-hairline bg-surface px-2 py-0.5 font-mono text-[10px] font-light text-muted dark:border-hairline-dark dark:bg-hairline-dark dark:text-muted-dark"
               >
                 {tag}
               </span>
             ))}
           </div>
-          <span className="text-[11px] font-light text-[#6e6e73] dark:text-[#888888]">{project.year}</span>
+          <span className="ml-auto shrink-0 text-[11px] font-light text-muted dark:text-muted-dark">{project.year}</span>
         </div>
       </div>
     </Wrapper>

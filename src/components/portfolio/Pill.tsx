@@ -11,8 +11,8 @@ export default function Pill({ children, active, onClick }: PillProps) {
       onClick={onClick}
       className={
         active
-          ? "rounded-full border border-[#1d1d1f] bg-[#1d1d1f] px-3 py-1 text-[11px] font-light text-white transition-all dark:border-[#b8ff3c] dark:bg-[#b8ff3c] dark:text-[#0a0a0a]"
-          : "rounded-full border border-[#e5e5ea] bg-transparent px-3 py-1 text-[11px] font-light text-[#6e6e73] transition-all hover:border-[#1d1d1f] hover:text-[#1d1d1f] dark:border-[#1e1e1e] dark:text-[#888888] dark:hover:border-[#f0ede6] dark:hover:text-[#f0ede6]"
+          ? "rounded-full border border-ink bg-ink px-3 py-1 text-[11px] font-light text-white transition-all dark:border-accent dark:bg-accent dark:text-canvas-dark"
+          : "rounded-full border border-hairline bg-transparent px-3 py-1 text-[11px] font-light text-muted transition-all hover:border-ink hover:text-ink dark:border-hairline-dark dark:text-muted-dark dark:hover:border-ink-dark dark:hover:text-ink-dark"
       }
     >
       {children}

@@ -10,8 +10,6 @@ export interface Project {
   tags: string[];
   year: string;
   status: string;
-  image: string;
-  imageAlt: string;
   href?: string;
 }
 
@@ -50,7 +48,7 @@ export const SECTION_LABELS = {
 
 export const ABOUT_CONTENT = {
   heading: "I build products end-to-end — from data models to the interfaces people actually use.",
-  body: "Full-stack engineer with 2 years of professional experience building software across early-stage startups and mid-size companies. Blending traditional software craftsmanship with modern, cutting-edge tech, I care as much about solid API architecture as the polished interfaces consuming it—with a sharp eye for detail that turns good code into great user experiences.",
+  body: "Full-stack engineer with 2 years of professional experience designing and building software across early-stage startups and mid-size companies — React, TypeScript, and Node.js on the product side, REST APIs and modular, maintainable architecture underneath. I pair traditional software craftsmanship with AI-assisted development, using tools like Claude to move faster without cutting corners on code quality — with a sharp eye for detail that turns good architecture into great user experiences.",
 };
 
 export const STACK_FILTER_ALL_LABEL = "All";
@@ -77,8 +75,14 @@ export const STACK: StackItem[] = [
   { label: "SQLite", category: "data" },
   { label: "Redis", category: "data" },
   { label: "Drizzle ORM", category: "data" },
+  { label: "Zod", category: "data" },
   { label: "Docker", category: "infra" },
   { label: "AWS", category: "infra" },
+  { label: "Git", category: "infra" },
+  { label: "Claude", category: "ai" },
+  { label: "Cursor", category: "ai" },
+  { label: "Antigravity", category: "ai" },
+  { label: "Ollama", category: "ai" },
 ];
 
 export const CATEGORY_LABELS: Record<string, string> = {
@@ -87,6 +91,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   backend: "Backend",
   data: "Data",
   infra: "Infra",
+  ai: "AI",
 };
 
 export const PROJECTS: Project[] = [
@@ -98,20 +103,16 @@ export const PROJECTS: Project[] = [
     tags: ["React Native", "Expo", "TypeScript", "Drizzle ORM"],
     year: "2026",
     status: "In Progress",
-    image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&h=480&fit=crop&auto=format",
-    imageAlt: "MacBook Pro on a clean minimal desk",
     href: "https://github.com/kh-pavlo/money-manager",
   },
   {
     number: "02",
     name: "Job Hunter Bot",
     description:
-      "Personal job-hunting agent: collects listings from Greenhouse and Lever boards, dedupes and hard-filters them, scores survivors with an LLM evaluator + critic, and pushes a daily shortlist straight to Telegram on a scheduled run.",
-    tags: ["Bun", "TypeScript", "Drizzle ORM", "Telegram Bot API"],
+      "Personal job-hunting agent: modular collector architecture across 8 job sources, cross-source deduplication and hard filtering, then an LLM evaluator + critic — Anthropic or local Ollama — ships a ranked shortlist to Telegram on schedule.",
+    tags: ["Bun", "TypeScript", "Drizzle ORM", "SQLite", "LLM Integration", "Telegram Bot API"],
     year: "2026",
     status: "Personal",
-    image: "https://images.unsplash.com/photo-1763568258533-d0597f86ce62?w=900&h=480&fit=crop&auto=format",
-    imageAlt: "Code editor with context menu on screen",
   },
 ];
 
