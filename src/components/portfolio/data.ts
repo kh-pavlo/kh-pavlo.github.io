@@ -10,8 +10,6 @@ export interface Project {
   tags: string[];
   year: string;
   status: string;
-  image: string;
-  imageAlt: string;
   href?: string;
 }
 
@@ -105,8 +103,6 @@ export const PROJECTS: Project[] = [
     tags: ["React Native", "Expo", "TypeScript", "Drizzle ORM"],
     year: "2026",
     status: "In Progress",
-    image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&h=480&fit=crop&auto=format",
-    imageAlt: "MacBook Pro on a clean minimal desk",
     href: "https://github.com/kh-pavlo/money-manager",
   },
   {
@@ -117,8 +113,6 @@ export const PROJECTS: Project[] = [
     tags: ["Bun", "TypeScript", "Drizzle ORM", "SQLite", "LLM Integration", "Telegram Bot API"],
     year: "2026",
     status: "Personal",
-    image: "https://images.unsplash.com/photo-1763568258533-d0597f86ce62?w=900&h=480&fit=crop&auto=format",
-    imageAlt: "Code editor with context menu on screen",
   },
 ];
 
