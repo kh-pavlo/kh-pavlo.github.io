@@ -1,0 +1,320 @@
+---
+import "../styles/app.css";
+import {
+  SITE_INFO,
+  ABOUT_CONTENT,
+  EXPERIENCE,
+  EDUCATION,
+  STACK,
+  CATEGORY_LABELS,
+  SOCIALS,
+  WHATSAPP_HREF,
+} from "../components/portfolio/data";
+
+const github = SOCIALS.find((s) => s.name === "GitHub")!;
+const linkedin = SOCIALS.find((s) => s.name === "LinkedIn")!;
+
+const stackByCategory = Object.keys(CATEGORY_LABELS).map((category) => ({
+  label: CATEGORY_LABELS[category],
+  items: STACK.filter((s) => s.category === category).map((s) => s.label),
+}));
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <title>{SITE_INFO.name} — Résumé</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div>
+          <h1>{SITE_INFO.name}</h1>
+          <div class="title">{SITE_INFO.title}</div>
+        </div>
+        <div class="contact">
+          <div class="avail">{SITE_INFO.availability}</div>
+          <div><a href={`mailto:${SITE_INFO.email}`}>{SITE_INFO.email}</a></div>
+          <div><a href={github.href}>{github.href.replace("https://", "")}</a></div>
+          <div><a href={linkedin.href}>{linkedin.href.replace("https://", "")}</a></div>
+          <div><a href={WHATSAPP_HREF}>{SITE_INFO.phone} (WhatsApp)</a></div>
+        </div>
+      </header>
+
+      <div class="section">
+        <div class="section-label">About</div>
+        <div class="summary">{ABOUT_CONTENT.body}</div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Experience</div>
+        {
+          EXPERIENCE.map((job) => (
+            <div class="job">
+              <div class="job-head">
+                <div>
+                  <span class="job-role">{job.role}</span> <span class="job-company">— {job.company}</span>
+                </div>
+                <div class="job-dates">
+                  {job.startDate} – {job.endDate}
+                </div>
+              </div>
+              <ul class="bullets">
+                {job.description.map((line) => (
+                  <li>{line}</li>
+                ))}
+              </ul>
+              <div class="job-skills">{job.skills.join(" · ")}</div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="section">
+        <div class="section-label">Education</div>
+        <div class="edu-row">
+          <div>
+            <span class="edu-school">{EDUCATION.school}</span>
+            <span class="edu-degree"> — {EDUCATION.degree}</span>
+          </div>
+          <div class="edu-dates">{EDUCATION.startDate} – {EDUCATION.endDate}</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Stack</div>
+        <div class="stack-grid">
+          {
+            stackByCategory.map((cat) => (
+              <>
+                <div class="stack-cat">{cat.label}</div>
+                <div class="stack-items">{cat.items.join(", ")}</div>
+              </>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  :global(html),
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    background: var(--color-canvas);
+  }
+
+  :global(body) {
+    font-family: var(--font-sans);
+    color: var(--color-body);
+    font-size: 10.3pt;
+    line-height: 1.38;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @page {
+    size: Letter;
+    margin: 0;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    padding: 0.4in 0.65in;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1.5px solid var(--color-ink);
+    padding-bottom: 6px;
+    margin-bottom: 11px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 25pt;
+    color: var(--color-ink);
+    margin: 0 0 2px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .title {
+    font-size: 11pt;
+    color: var(--color-muted);
+    font-weight: 500;
+  }
+
+  .contact {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 8.3pt;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .contact a {
+    color: var(--color-body);
+    text-decoration: none;
+  }
+
+  .contact .avail {
+    color: var(--color-link);
+    font-weight: 500;
+  }
+
+  .contact .avail::before {
+    content: "● ";
+    font-size: 7pt;
+  }
+
+  .section {
+    margin-bottom: 9px;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 8pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-link);
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--color-hairline);
+  }
+
+  .summary {
+    color: var(--color-body);
+    font-size: 10.1pt;
+    max-width: 100%;
+  }
+
+  .job {
+    margin-bottom: 7px;
+  }
+  .job:last-child {
+    margin-bottom: 0;
+  }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3px;
+  }
+
+  .job-role {
+    color: var(--color-ink);
+    font-weight: 700;
+    font-size: 10.6pt;
+  }
+
+  .job-company {
+    color: var(--color-body);
+    font-weight: 400;
+  }
+
+  .job-dates {
+    font-family: var(--font-mono);
+    font-size: 8.3pt;
+    color: var(--color-muted);
+    white-space: nowrap;
+    padding-left: 12px;
+  }
+
+  ul.bullets {
+    list-style-type: disc;
+    margin: 0 0 4px 0;
+    padding-left: 15px;
+  }
+
+  ul.bullets li {
+    margin-bottom: 1px;
+    color: var(--color-body);
+  }
+  ul.bullets li::marker {
+    color: var(--color-link);
+  }
+
+  .job-skills {
+    font-size: 8.6pt;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .edu-school {
+    color: var(--color-ink);
+    font-weight: 700;
+    font-size: 10.3pt;
+  }
+
+  .edu-degree {
+    color: var(--color-body);
+  }
+
+  .edu-dates {
+    font-family: var(--font-mono);
+    font-size: 8.3pt;
+    color: var(--color-muted);
+    white-space: nowrap;
+    padding-left: 12px;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    row-gap: 4px;
+    column-gap: 10px;
+    font-size: 9.4pt;
+  }
+
+  .stack-cat {
+    font-family: var(--font-mono);
+    font-size: 8pt;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-top: 1px;
+  }
+
+  .stack-items {
+    color: var(--color-body);
+  }
+
+  @media print {
+    :global(body) {
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+  }
+</style>

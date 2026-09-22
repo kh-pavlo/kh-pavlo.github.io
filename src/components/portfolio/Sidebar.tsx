@@ -39,6 +39,14 @@ export default function Sidebar() {
               {s.name}
             </a>
           ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] font-light text-muted transition-colors hover:text-ink dark:text-muted-dark dark:hover:text-ink-dark"
+          >
+            Résumé (PDF)
+          </a>
         </div>
       </div>
     </aside>
