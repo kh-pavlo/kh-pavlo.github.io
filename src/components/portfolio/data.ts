@@ -79,6 +79,10 @@ export const STACK: StackItem[] = [
   { label: "Drizzle ORM", category: "data" },
   { label: "Docker", category: "infra" },
   { label: "AWS", category: "infra" },
+  { label: "Claude", category: "ai" },
+  { label: "Cursor", category: "ai" },
+  { label: "Antigravity", category: "ai" },
+  { label: "Ollama", category: "ai" },
 ];
 
 export const CATEGORY_LABELS: Record<string, string> = {
@@ -87,6 +91,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   backend: "Backend",
   data: "Data",
   infra: "Infra",
+  ai: "AI",
 };
 
 export const PROJECTS: Project[] = [
