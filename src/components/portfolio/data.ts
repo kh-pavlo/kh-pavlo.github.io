@@ -39,6 +39,14 @@ export interface SiteInfo {
   title: string;
   availability: string;
   email: string;
+  phone: string;
+}
+
+export interface EducationItem {
+  school: string;
+  degree: string;
+  startDate: string;
+  endDate: string;
 }
 
 export const SITE_INFO: SiteInfo = {
@@ -46,6 +54,16 @@ export const SITE_INFO: SiteInfo = {
   title: "Full Stack Developer",
   availability: "Available for work",
   email: "hit.pasha@gmail.com",
+  phone: "+49 162 3190504",
+};
+
+export const WHATSAPP_HREF = `https://wa.me/${SITE_INFO.phone.replace(/[^0-9]/g, "")}`;
+
+export const EDUCATION: EducationItem = {
+  school: "Ivan Franko National University of Lviv",
+  degree: "B.S. in Computer Science",
+  startDate: "Sep 2022",
+  endDate: "Jul 2026",
 };
 
 export const NAV_LINKS: string[] = ["About", "Stack", "Experience", "Projects"];
@@ -177,7 +195,7 @@ export const SOCIALS: Social[] = [
   { name: "GitHub", href: "https://github.com/kh-pavlo" },
   { name: "LinkedIn", href: "https://linkedin.com/in/pavlo-khytrov" },
   { name: "Twitter", href: "https://x.com/nuff02" },
-  { name: "WhatsApp", href: "https://wa.me/kh_pavlo" },
+  { name: "WhatsApp", href: WHATSAPP_HREF },
 ];
 
 export const CURRENTLY: CurrentlyItem[] = [

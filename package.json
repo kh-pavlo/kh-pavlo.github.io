@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/generate-resume-pdf.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "playwright": "^1.48.0",
     "typescript": "^6.0.3"
   }
 }
