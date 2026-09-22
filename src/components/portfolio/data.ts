@@ -182,7 +182,7 @@ export const SOCIALS: Social[] = [
 
 export const CURRENTLY: CurrentlyItem[] = [
   { label: "Building", value: "a personal job-hunting agent that scores listings with an LLM and ships a daily shortlist to Telegram" },
-  { label: "Reading", value: "Designing Data-Intensive Applications — Kleppmann" },
+  { label: "Reading", value: "A Philosophy of Software Design — Ousterhout" },
   { label: "Exploring", value: "LLM-as-judge evaluation pipelines — evaluator/critic scoring with few-shot examples from user feedback" },
   { label: "Open to", value: "Full-time remote roles across EU and US time zones (Frontend, Backend, or Full-Stack)." },
 ];
